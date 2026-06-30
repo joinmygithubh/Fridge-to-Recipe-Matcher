@@ -144,13 +144,13 @@ export default function Home() {
 
           {/* Grid */}
           {loading ? (
-            <SkeletonGrid count={6} />
+            <SkeletonGrid count={10} />
           ) : matchedRecipes.length === 0 ? (
             <p className="py-16 text-center text-neutral-600">
               No recipes match these filters. Try widening your search.
             </p>
           ) : (
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
               {matchedRecipes.map((recipe) => (
                 <RecipeCard key={recipe._id} recipe={recipe} />
               ))}

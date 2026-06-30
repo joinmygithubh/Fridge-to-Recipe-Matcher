@@ -36,7 +36,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-neutral-100 bg-cream-50/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex w-full max-w-[1800px] items-center justify-between px-4 py-3 sm:px-6 lg:px-8 xl:px-12">
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sage-100">
@@ -104,7 +104,7 @@ export default function Navbar() {
 
       {/* Mobile slide-down panel */}
       {open && (
-        <div className="border-t border-neutral-100 bg-cream-50 px-4 py-4 md:hidden">
+        <div className="border-t border-neutral-100 bg-cream-50 px-4 py-4 sm:px-6 md:hidden">
           {isAuthenticated ? (
             <nav className="flex flex-col gap-4 text-sm font-medium">
               {links.map((l) => (
