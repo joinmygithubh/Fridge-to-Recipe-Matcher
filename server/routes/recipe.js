@@ -17,7 +17,10 @@ function buildFilter(query) {
     const tags = Array.isArray(query.dietaryTags)
       ? query.dietaryTags
       : String(query.dietaryTags).split(',').map((t) => t.trim()).filter(Boolean);
-    if (tags.length) filter.dietaryTags = { $all: tags };
+    // Match recipes carrying ANY of the selected dietary tags ($in) rather than
+    // requiring all of them ($all), so combining filters stays forgiving and
+    // doesn't surprise users with empty results.
+    if (tags.length) filter.dietaryTags = { $in: tags };
   }
   if (query.maxPrepTime) {
     const max = Number(query.maxPrepTime);
