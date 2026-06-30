@@ -179,7 +179,15 @@ The missing ingredients from this same calculation are what feed the shopping-li
 
 ## Screenshots
 
-_Add screenshots here._
+Add your screenshots to the [`docs/`](docs/SCREENSHOTS.md) folder using the
+filenames below, and they'll render here automatically. See the
+[screenshots guide](docs/SCREENSHOTS.md) for what to capture and tips.
+
+<!-- Uncomment each line once the corresponding image exists in docs/ -->
+<!-- ![Home / match grid](docs/home.png) -->
+<!-- ![My fridge](docs/fridge.png) -->
+<!-- ![Recipe detail with match ring](docs/recipe.png) -->
+<!-- ![Shopping list](docs/shopping-list.png) -->
 
 - **Home / match grid** — `docs/home.png`
 - **My fridge** — `docs/fridge.png`
