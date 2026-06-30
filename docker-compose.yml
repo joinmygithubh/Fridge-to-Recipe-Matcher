@@ -1,0 +1,31 @@
+# Two services only: the API server and the nginx-served client.
+# MongoDB is hosted on Atlas (cloud) — there is no local mongo container.
+
+services:
+  server:
+    build:
+      context: ./server
+    container_name: frm-server
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      # Point this at your MongoDB Atlas cluster.
+      MONGODB_URI: ${MONGODB_URI}
+      CLIENT_URL: ${CLIENT_URL:-http://localhost:8080}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
+    ports:
+      - '5000:5000'
+
+  client:
+    build:
+      context: ./client
+      args:
+        VITE_API_URL: /api
+    container_name: frm-client
+    restart: unless-stopped
+    depends_on:
+      - server
+    ports:
+      - '8080:80'
